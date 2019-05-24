@@ -28,7 +28,7 @@ import classNames from "classnames";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import { styleApplicationBar } from './../style/PublicSite';
-import menuBackground from "./../assets/img/back-mobile-menu.jpeg";
+import menuBackground from "./../assets/img/background.jpg";
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -42,22 +42,31 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from '@material-ui/core/Collapse';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 
 import { t } from './../service/TranslationService';
+import { routes } from './../routing/public-site';
 
 class AplicationBar extends React.Component {
     render() {
         const { classes, mobileOpen, handleDrawerToggle } = this.props;
         var backImageWrapper = (<div className={classes.background} style={{ backgroundImage: "url('" + menuBackground + "')" }} />);
+        let activeRoutes = routes().filter(route => this.activeRoute(route.path) && !route.redirect);
+        let label = '';
+        if (activeRoutes && activeRoutes.length === 1) {
+            label = activeRoutes[0].sidebarName;
+        }
         return (
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar className={classes.appBar}>
                     <Hidden smDown implementation="css">
                         <div className={classes.brand}>
-                            <Icon color="inherit">local_florist</Icon>
+                            <Icon color="inherit" className={classes.brandIcon}>local_florist</Icon>
                             <Typography variant="h5" color="inherit">
                                 { t.brand }
                             </Typography>
+                            {this.createButtons(routes())}
                         </div>
                     </Hidden>
                     <Hidden mdUp implementation="css">
@@ -66,7 +75,7 @@ class AplicationBar extends React.Component {
                                 <Icon>menu</Icon>
                             </IconButton>
                             <Typography variant="h5" color="inherit">
-                                { t.brand }
+                                { label }
                             </Typography>
                         </div>
                     </Hidden>
@@ -76,7 +85,15 @@ class AplicationBar extends React.Component {
                         }} ModalProps={{
                             keepMounted: true // Better open performance on mobile.
                         }}>
-                            <div className={classes.sidebarWrapper}></div>
+                            <div className={classes.sidebarWrapper}>
+                                <Paper className={classes.mobileBrand}>
+                                    <Icon color="inherit" className={classes.brandIcon}>local_florist</Icon>
+                                    <Typography variant="h6" color="inherit">
+                                        { t.brand }
+                                    </Typography>
+                                </Paper>
+                                {this.createList(routes(), 0)}
+                            </div>
                             {backImageWrapper}
                         </Drawer>
                     </Hidden>
@@ -84,8 +101,30 @@ class AplicationBar extends React.Component {
             </AppBar>
         );
     };
+    createButtons = (routes) => {
+        const { classes } = this.props;
+        return (
+            <div className={classes.buttonsContainer}>{
+                routes.map((prop, key) => {
+                    if (prop.redirect) return null;
+                    if (prop.excludeFromNavigation) return null;
+                    let btnClasses = classNames({
+                        [classes.button]: true,
+                        [classes.buttonActive]: this.activeRoute(prop.path)
+                    });
+                    return (
+                        <NavLink to={prop.path} activeClassName="active" key={key} className={classes.navLink}>
+                            <Button className={btnClasses} variant={'outlined'} color="inherit">
+                                <Icon className={classes.buttonIcon}>{prop.icon}</Icon> { prop.sidebarName }
+                            </Button>
+                        </NavLink>
+                    );
+                })
+            }</div>
+        );
+    };
     createList = (listData, level) => {
-        const {classes} = this.props;
+        const { classes, handleDrawerToggle } = this.props;
         let shift = { marginLeft: (15 * level) + 15 };
         return (
             <List className={classes.list}>
@@ -98,12 +137,12 @@ class AplicationBar extends React.Component {
                         });
                         if (prop.path) {
                             return (
-                                <NavLink to={prop.path} className={classes.item} activeClassName="active" key={key}>
+                                <NavLink to={prop.path} className={classes.item} onClick={() => handleDrawerToggle()} key={key}>
                                     <ListItem button className={classes.itemLink + listItemClasses} style={shift}>
                                         <ListItemIcon className={classes.itemIcon}>
                                             {typeof prop.icon === "string" ? (<Icon>{prop.icon}</Icon>) : (<prop.icon />)}
                                         </ListItemIcon>
-                                        <ListItemText primary={t('navigation.tabs.' + prop.sidebarName)} className={classes.itemText} />
+                                        <ListItemText primary={prop.sidebarName} className={classes.itemText} />
                                     </ListItem>
                                 </NavLink>
                             );
@@ -123,8 +162,8 @@ class AplicationBar extends React.Component {
                                         {typeof prop.icon === "string" ? (<Icon>{prop.icon}</Icon>) : (<prop.icon />)}
                                     </ListItemIcon>
                                     <ListItemText className={classes.itemText}>
-                                        {t('navigation.tabs.' + prop.sidebarName)}
-                                        <Icon fontSize="small" className={classes.expandIcon}>{isOpen ? 'expand_less' : 'expand_more'}</Icon>
+                                        {prop.sidebarName}
+                                        <Icon fontSize="small">{isOpen ? 'expand_less' : 'expand_more'}</Icon>
                                     </ListItemText>
                                 </ListItem>
                                 <Collapse in={isOpen} timeout="auto" unmountOnExit>
@@ -137,6 +176,9 @@ class AplicationBar extends React.Component {
                 }
             </List>
         );
+    };
+    activeRoute = (routeName) => {
+        return this.props.location.pathname.indexOf(routeName) > -1 ? true : false;
     };
 };
 

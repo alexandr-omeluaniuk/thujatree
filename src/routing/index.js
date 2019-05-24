@@ -31,7 +31,7 @@ export const history = createBrowserHistory();
 
 export const urls = {
     context: context,
-    publicSitePage: context + '/page'
+    publicSitePage: context + 'page'
 };
 
 export const indexRoutes = [{

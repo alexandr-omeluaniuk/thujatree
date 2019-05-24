@@ -23,19 +23,22 @@
  */
 
 import { createMuiTheme } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/lightGreen';
+import red from '@material-ui/core/colors/red';
+import pink from '@material-ui/core/colors/pink';
 import background from "./../assets/img/background.jpg";
 
-//const toolbarHeight = 56;
 const mobileMenuWidth = 280;
 
 export const theme = createMuiTheme({
+    palette: {
+        primary: red,
+        secondary: pink
+    },
     typography: {
         useNextVariants: true
     }
 });
-theme.palette.primary.main = green[700];
-
+//console.log(theme);
 export const stylePublicSite = theme => ({
     wrapper: {
         position: "relative",
@@ -60,11 +63,6 @@ export const stylePublicSite = theme => ({
 
 export const styleApplicationBar = theme => ({
     appBar: {
-//        [theme.breakpoints.down("sm")]: {
-//            height: toolbarHeight,
-//            minHeight: toolbarHeight,
-//            maxHeight: toolbarHeight
-//        }
     },
     brand: {
         display: 'flex',
@@ -109,8 +107,109 @@ export const styleApplicationBar = theme => ({
             height: "100%",
             content: '""',
             display: "block",
-            background: '#9e9e9e',
+            background: '#131313',
             opacity: ".4"
         }
+    },
+    button: {
+        margin: theme.spacing.unit,
+        color: theme.palette.white,
+        border: '1px solid ' + theme.palette.primary.main
+    },
+    buttonIcon: {
+        marginRight: theme.spacing.unit
+    },
+    buttonActive: {
+        border: '1px solid rgba(255, 255, 255, 0.53)'
+    },
+    buttonsContainer: {
+        marginLeft: '10px',
+        borderLeft: '1px solid #ffffff6e',
+        paddingLeft: '10px',
+        flexGrow: 1
+    },
+    navLink: {
+        color: theme.palette.getContrastText(theme.palette.primary.main)
+    },
+    brandIcon: {
+        fontSize: 40,
+        color: theme.palette.getContrastText(theme.palette.primary.main)
+    },
+    list: {
+        marginTop: "20px",
+        marginLeft: theme.spacing.unit * 2,
+        marginRight: theme.spacing.unit * 2,
+        paddingLeft: "0",
+        paddingTop: "0",
+        paddingBottom: "0",
+        marginBottom: "0",
+        listStyle: "none",
+        position: "unset"
+    },
+    selectedMenuItem: {
+        backgroundColor: theme.palette.secondary.main + '!important',
+        boxShadow: "0 12px 20px -10px rgba(255, 255, 255, 0.28), 0 4px 20px 0 rgba(0,0,0,.12), 0 7px 8px -5px rgba(90, 90, 90, 0.67)",
+        "&:hover": {
+            backgroundColor: theme.palette.secondary.main + '!important',
+            boxShadow: "0 12px 20px -10px rgba(255, 255, 255, 0.28), 0 4px 20px 0 rgba(0,0,0,.12), 0 7px 8px -5px rgba(90, 90, 90, 0.67)"
+        }
+    },
+    item: {
+        position: "relative",
+        display: "block",
+        textDecoration: "none",
+        "&:hover,&:focus,&:visited,&": {
+            color: "#FFFFFF"
+        }
+    },
+    itemLink: {
+        "&:hover": {
+            backgroundColor: "#ffffff30"
+        },
+        width: "auto",
+        transition: "all 300ms linear",
+        margin: "10px 0px 0px 0px !important",
+        borderRadius: "3px",
+        position: "relative",
+        display: "block",
+        padding: "10px 15px",
+        backgroundColor: "transparent"
+    },
+    itemIcon: {
+        width: "24px",
+        height: "30px",
+        fontSize: "24px",
+        lineHeight: "30px",
+        float: "left",
+        marginRight: "15px",
+        textAlign: "center",
+        verticalAlign: "middle",
+        color: theme.palette.getContrastText(theme.palette.primary.main)
+    },
+    itemText: {
+        margin: "0",
+        lineHeight: "30px",
+        fontSize: "14px",
+        '& span': {
+            color: theme.palette.getContrastText(theme.palette.primary.main)
+        }
+    },
+    sidebarWrapper: {
+        position: "relative",
+        height: "calc(100vh - 75px)",
+        overflow: "auto",
+        width: `${mobileMenuWidth}px`,
+        zIndex: "4",
+        overflowScrolling: "touch"
+    },
+    mobileBrand: {
+        display: 'flex',
+        alignItems: 'center',
+        '& h6': {
+            marginLeft: theme.spacing.unit
+        },
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.getContrastText(theme.palette.primary.main),
+        padding: theme.spacing.unit
     }
 });

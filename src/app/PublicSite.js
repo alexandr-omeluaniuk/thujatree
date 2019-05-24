@@ -30,8 +30,7 @@ import { theme, stylePublicSite } from './../style/PublicSite';
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import AppBar from './../component/ApplicationBar';
-import Main from './../page/Main';
-import Contacts from './../page/Contacts';
+import { routes } from './../routing/public-site';
 
 class PublicSite extends React.Component {
     state = {
@@ -39,22 +38,37 @@ class PublicSite extends React.Component {
     }
     render() {
         const { mobileOpen } = this.state;
-        const { classes } = this.props;
+        const { classes, location } = this.props;
         return (
                 <MuiThemeProvider theme={theme}>
                     <div className={classes.wrapper}>
-                        <AppBar mobileOpen={mobileOpen} handleDrawerToggle={this.handleDrawerToggle}></AppBar>
-                        <Switch>
-                            <Route path={'/page/main'} component={Main} key={1} />
-                            <Route path={'/page/contacts'} component={Contacts} key={2} />
-                            <Redirect from={'/'} to={'/page/main'} key={9999} />
-                        </Switch>
+                        <AppBar mobileOpen={mobileOpen} handleDrawerToggle={this.handleDrawerToggle} location={location}></AppBar>
+                        <Switch>{ this.createRoutes(routes(), 0) }</Switch>
                     </div>
                 </MuiThemeProvider>
         );
     };
     handleDrawerToggle = () => {
         this.setState({ mobileOpen: !this.state.mobileOpen });
+    };
+    createRoutes = (routes, level) => {
+        var arr = [];
+        var startKey = (1000 * level) + 1;
+        for (let prop of routes) {
+            var currentKey = startKey++;
+            if (!prop.path) {
+                let nextLevel = level + 1;
+                let childs = this.createRoutes(prop.children, nextLevel);
+                for (let child of childs) {
+                    arr.push(child);
+                }
+            } else if (prop.redirect) {
+                arr.push(<Redirect from={prop.path} to={prop.to} key={currentKey} />);
+            } else {
+                arr.push(<Route path={prop.path} component={prop.component} key={currentKey}/>);
+            }
+        }
+        return arr;
     };
 };
 

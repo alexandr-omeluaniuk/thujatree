@@ -23,7 +23,7 @@
  */
 
 export const t = {
-    brand: 'Питомник туй',
+    brand: 'Светлана ТуиБрест',
     page: {
         'main': 'Главная',
         'contacts': 'Контакты'
