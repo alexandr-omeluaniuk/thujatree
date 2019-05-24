@@ -74,7 +74,7 @@ class AplicationBar extends React.Component {
                             <IconButton color="inherit" onClick={handleDrawerToggle}>
                                 <Icon>menu</Icon>
                             </IconButton>
-                            <Typography variant="h5" color="inherit">
+                            <Typography variant="h6" color="inherit">
                                 { label }
                             </Typography>
                         </div>
@@ -86,7 +86,7 @@ class AplicationBar extends React.Component {
                             keepMounted: true // Better open performance on mobile.
                         }}>
                             <div className={classes.sidebarWrapper}>
-                                <Paper className={classes.mobileBrand}>
+                                <Paper className={classes.mobileBrand} square={true}>
                                     <Icon color="inherit" className={classes.brandIcon}>local_florist</Icon>
                                     <Typography variant="h6" color="inherit">
                                         { t.brand }

@@ -28,6 +28,10 @@ import pink from '@material-ui/core/colors/pink';
 import background from "./../assets/img/background.jpg";
 
 const mobileMenuWidth = 280;
+export const slideDuration = 500;
+const transition = {
+    transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)"
+};
 
 export const theme = createMuiTheme({
     palette: {
@@ -55,9 +59,37 @@ export const stylePublicSite = theme => ({
             height: "100%",
             content: '""',
             display: "block",
-            background: 'white',
-            opacity: ".5"
+            background: '#131313',
+            opacity: ".4"
         }
+    },
+    mainPanel: {
+        overflow: "hidden",
+        position: "relative",
+        float: "right",
+        ...transition,
+        maxHeight: "100%",
+        width: "100%",
+        overflowScrolling: "touch",
+        zIndex: '4'
+    },
+    slideEnter: {
+        transform: `translateX(100%) translateX(${theme.spacing.unit * 2}px)`
+    },
+    slideEnterActive: {
+        transform: 'translateX(0%)',
+        transition: `transform ${slideDuration}ms ease-in-out`
+    },
+    slideExit: {
+        transform: 'translateX(0%)',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0
+    },
+    slideExitActive: {
+        transition: `transform ${slideDuration}ms ease-in-out`,
+        transform: `translateX(-100%) translateX(-${theme.spacing.unit * 2}px)`
     }
 });
 
@@ -68,6 +100,9 @@ export const styleApplicationBar = theme => ({
         display: 'flex',
         alignItems: 'center',
         '& h5': {
+            marginLeft: theme.spacing.unit
+        },
+        '& h6': {
             marginLeft: theme.spacing.unit
         }
     },
@@ -132,7 +167,7 @@ export const styleApplicationBar = theme => ({
         color: theme.palette.getContrastText(theme.palette.primary.main)
     },
     brandIcon: {
-        fontSize: 40,
+        fontSize: 32,
         color: theme.palette.getContrastText(theme.palette.primary.main)
     },
     list: {
@@ -210,6 +245,6 @@ export const styleApplicationBar = theme => ({
         },
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.getContrastText(theme.palette.primary.main),
-        padding: theme.spacing.unit
+        padding: theme.spacing.unit * 1.5
     }
 });

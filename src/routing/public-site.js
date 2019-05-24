@@ -26,6 +26,7 @@ import { urls } from './index';
 import { t } from './../service/TranslationService';
 
 import Main from './../page/Main';
+import Products from './../page/Products';
 import Contacts from './../page/Contacts';
 
 export const routes = () => {
@@ -34,6 +35,11 @@ export const routes = () => {
         sidebarName: t.page.main,
         icon: 'home',
         component: Main
+    }, {
+        path: urls.publicSitePage + "/products",
+        sidebarName: t.page.products,
+        icon: 'shopping_basket',
+        component: Products
     }, {
         path: urls.publicSitePage + "/contacts",
         sidebarName: t.page.contacts,

@@ -24,9 +24,10 @@
 
 import React from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { theme, stylePublicSite } from './../style/PublicSite';
+import { theme, stylePublicSite, slideDuration } from './../style/PublicSite';
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import AppBar from './../component/ApplicationBar';
@@ -43,13 +44,33 @@ class PublicSite extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <div className={classes.wrapper}>
                         <AppBar mobileOpen={mobileOpen} handleDrawerToggle={this.handleDrawerToggle} location={location}></AppBar>
-                        <Switch>{ this.createRoutes(routes(), 0) }</Switch>
+                        <div className={classes.mainPanel}>
+                            <div className={classes.content}>
+                                { this.createNavRoutes(routes(), 0) }
+                            </div>
+                        </div>
                     </div>
                 </MuiThemeProvider>
         );
     };
     handleDrawerToggle = () => {
         this.setState({ mobileOpen: !this.state.mobileOpen });
+    };
+    createNavRoutes = (routes) => {
+        const location = this.props.location;
+        const classes = this.props.classes;
+        return (
+                <TransitionGroup>
+                    <CSSTransition key={location.key} timeout={slideDuration} classNames={{
+                            enter: classes.slideEnter,
+                            enterActive: classes.slideEnterActive,
+                            exit: classes.slideExit,
+                            exitActive: classes.slideExitActive
+                    }}>
+                        <Switch location={location}>{this.createRoutes(routes, 0)}</Switch>
+                    </CSSTransition>
+                </TransitionGroup>
+        );
     };
     createRoutes = (routes, level) => {
         var arr = [];

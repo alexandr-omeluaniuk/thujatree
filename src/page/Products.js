@@ -22,11 +22,12 @@
  * THE SOFTWARE.
  */
 
-export const t = {
-    brand: 'Светлана ТуиБрест',
-    page: {
-        'main': 'Главная',
-        'products': 'Продукция',
-        'contacts': 'Контакты'
+import React from "react";
+
+class Products extends React.Component {
+    render() {
+        return (<div>Products</div>);
     }
 };
+
+export default Products;
