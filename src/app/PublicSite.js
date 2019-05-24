@@ -24,10 +24,23 @@
 
 import React from "react";
 
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { theme, stylePublicSite } from './../style/PublicSite';
+import withStyles from "@material-ui/core/styles/withStyles";
+
+import AppBar from './../component/ApplicationBar';
+
 class PublicSite extends React.Component {
     render() {
-        return (<div>TODO</div>);
+        const { classes } = this.props;
+        return (
+                <MuiThemeProvider theme={theme}>
+                    <div className={classes.wrapper}>
+                        <AppBar></AppBar>
+                    </div>
+                </MuiThemeProvider>
+        );
     }
 };
 
-export default PublicSite;
+export default withStyles(stylePublicSite)(PublicSite);

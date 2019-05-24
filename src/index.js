@@ -27,6 +27,8 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import { indexRoutes, history } from './routing/index';
+import './assets/css/common.css';
+import './assets/css/material-icons.css';
 
 ReactDOM.render(
     <Router history={history}>
