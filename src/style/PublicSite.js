@@ -23,21 +23,18 @@
  */
 
 import { createMuiTheme } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/green';
-import lime from '@material-ui/core/colors/lime';
+import green from '@material-ui/core/colors/lightGreen';
 import background from "./../assets/img/background.jpg";
 
-const toolbarHeight = 56;
+//const toolbarHeight = 56;
+const mobileMenuWidth = 280;
 
 export const theme = createMuiTheme({
-    palette: {
-        primary: green,
-        secondary: lime
-    },
     typography: {
         useNextVariants: true
     }
 });
+theme.palette.primary.main = green[700];
 
 export const stylePublicSite = theme => ({
     wrapper: {
@@ -63,12 +60,57 @@ export const stylePublicSite = theme => ({
 
 export const styleApplicationBar = theme => ({
     appBar: {
-        height: toolbarHeight,
-        minHeight: toolbarHeight,
-        maxHeight: toolbarHeight
+//        [theme.breakpoints.down("sm")]: {
+//            height: toolbarHeight,
+//            minHeight: toolbarHeight,
+//            maxHeight: toolbarHeight
+//        }
     },
     brand: {
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        '& h5': {
+            marginLeft: theme.spacing.unit
+        }
+    },
+    drawerPaper: {
+        border: "none",
+        position: "fixed",
+        bottom: "0",
+        width: mobileMenuWidth,
+        display: "block",
+        top: "0",
+        height: "100vh",
+        left: "0",
+        right: "auto",
+        zIndex: "1032",
+        visibility: "visible",
+        overflowY: "visible",
+        borderTop: "none",
+        textAlign: "left",
+        paddingLeft: "0px",
+        paddingRight: "0",
+        transform: `translate3d(${mobileMenuWidth}px, 0, 0)`
+    },
+    background: {
+        position: "absolute",
+        zIndex: "1",
+        height: "100%",
+        width: "100%",
+        display: "block",
+        top: "0",
+        left: "0",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        "&:after": {
+            position: "absolute",
+            zIndex: "3",
+            width: "100%",
+            height: "100%",
+            content: '""',
+            display: "block",
+            background: '#9e9e9e',
+            opacity: ".4"
+        }
     }
 });

@@ -22,19 +22,12 @@
  * THE SOFTWARE.
  */
 
-import { createBrowserHistory } from "history";
-import PublicSite from './../app/PublicSite';
+import React from "react";
 
-const context = '/';
-
-export const history = createBrowserHistory();
-
-export const urls = {
-    context: context,
-    publicSitePage: context + '/page'
+class Contacts extends React.Component {
+    render() {
+        return (<div>Contacts</div>);
+    }
 };
 
-export const indexRoutes = [{
-        path: urls.context,
-        component: PublicSite
-    }];
+export default Contacts;

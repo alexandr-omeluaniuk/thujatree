@@ -22,19 +22,10 @@
  * THE SOFTWARE.
  */
 
-import { createBrowserHistory } from "history";
-import PublicSite from './../app/PublicSite';
-
-const context = '/';
-
-export const history = createBrowserHistory();
-
-export const urls = {
-    context: context,
-    publicSitePage: context + '/page'
+export const t = {
+    brand: 'Питомник туй',
+    page: {
+        'main': 'Главная',
+        'contacts': 'Контакты'
+    }
 };
-
-export const indexRoutes = [{
-        path: urls.context,
-        component: PublicSite
-    }];

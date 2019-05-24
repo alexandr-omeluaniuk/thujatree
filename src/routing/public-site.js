@@ -22,19 +22,26 @@
  * THE SOFTWARE.
  */
 
-import { createBrowserHistory } from "history";
-import PublicSite from './../app/PublicSite';
+import { urls } from './index';
+import { t } from './../service/TranslationService';
 
-const context = '/';
+import Main from './../page/Main';
+import Contacts from './../page/Contacts';
 
-export const history = createBrowserHistory();
-
-export const urls = {
-    context: context,
-    publicSitePage: context + '/page'
-};
-
-export const indexRoutes = [{
+export const routes = () => {
+    return [{
+        path: urls.publicSitePage + "/main",
+        sidebarName: t.page.main,
+        icon: 'home',
+        component: Main
+    }, {
+        path: urls.publicSitePage + "/contacts",
+        sidebarName: t.page.contacts,
+        icon: 'phone',
+        component: Contacts
+    }, {
+        redirect: true,
         path: urls.context,
-        component: PublicSite
+        to: urls.publicSitePage + "/main"
     }];
+};
