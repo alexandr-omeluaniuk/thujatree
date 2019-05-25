@@ -46,13 +46,13 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
 import { t } from './../service/TranslationService';
-import { routes } from './../routing/public-site';
+import { approutes } from './../routing/public-site';
 
 class AplicationBar extends React.Component {
     render() {
         const { classes, mobileOpen, handleDrawerToggle } = this.props;
         var backImageWrapper = (<div className={classes.background} style={{ backgroundImage: "url('" + menuBackground + "')" }} />);
-        let activeRoutes = routes().filter(route => this.activeRoute(route.path) && !route.redirect);
+        let activeRoutes = approutes.filter(route => this.activeRoute(route.path) && !route.redirect);
         let label = '';
         if (activeRoutes && activeRoutes.length === 1) {
             label = activeRoutes[0].sidebarName;
@@ -66,7 +66,7 @@ class AplicationBar extends React.Component {
                             <Typography variant="h5" color="inherit">
                                 { t.brand }
                             </Typography>
-                            {this.createButtons(routes())}
+                            {this.createButtons(approutes)}
                         </div>
                     </Hidden>
                     <Hidden mdUp implementation="css">
@@ -92,7 +92,7 @@ class AplicationBar extends React.Component {
                                         { t.brand }
                                     </Typography>
                                 </Paper>
-                                {this.createList(routes(), 0)}
+                                {this.createList(approutes, 0)}
                             </div>
                             {backImageWrapper}
                         </Drawer>

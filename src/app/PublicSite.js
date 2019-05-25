@@ -23,7 +23,7 @@
  */
 
 import React from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -31,7 +31,7 @@ import { theme, stylePublicSite, slideDuration } from './../style/PublicSite';
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import AppBar from './../component/ApplicationBar';
-import { routes } from './../routing/public-site';
+import { approutes } from './../routing/public-site';
 
 class PublicSite extends React.Component {
     state = {
@@ -46,7 +46,7 @@ class PublicSite extends React.Component {
                         <AppBar mobileOpen={mobileOpen} handleDrawerToggle={this.handleDrawerToggle} location={location}></AppBar>
                         <div className={classes.mainPanel}>
                             <div className={classes.content}>
-                                { this.createNavRoutes(routes(), 0) }
+                                { this.createNavRoutes(approutes) }
                             </div>
                         </div>
                     </div>
@@ -59,15 +59,15 @@ class PublicSite extends React.Component {
     createNavRoutes = (routes) => {
         const location = this.props.location;
         const classes = this.props.classes;
-        return (
-                <TransitionGroup>
-                    <CSSTransition key={location.key} timeout={slideDuration} classNames={{
+        const routing = this.createRoutes(routes, 0);
+        return (<TransitionGroup component={null}>
+                    <CSSTransition key={location.pathname} timeout={slideDuration} classNames={{
                             enter: classes.slideEnter,
                             enterActive: classes.slideEnterActive,
                             exit: classes.slideExit,
                             exitActive: classes.slideExitActive
                     }}>
-                        <Switch location={location}>{this.createRoutes(routes, 0)}</Switch>
+                        <Switch>{routing}</Switch>
                     </CSSTransition>
                 </TransitionGroup>
         );
@@ -93,4 +93,4 @@ class PublicSite extends React.Component {
     };
 };
 
-export default withRouter(withStyles(stylePublicSite)(PublicSite));
+export default withStyles(stylePublicSite)(PublicSite);
