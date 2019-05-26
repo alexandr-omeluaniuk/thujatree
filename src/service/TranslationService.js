@@ -26,7 +26,8 @@ export const t = {
     brand: 'Светлана ТуиБрест',
     title: {
         main: 'ТуиБрест | Главная',
-        contacts: 'ТуиБрест | Контакты'
+        contacts: 'ТуиБрест | Контакты',
+        products: 'ТуиБрест | Продукция'
     },
     page: {
         'main': 'Главная',
@@ -47,5 +48,8 @@ export const t = {
         workingHours: 'Круглосуточно',
         workingHoursLabel: 'Время работы',
         here: "Мы здесь<br/>Питомник туй 'Светлана ТуиБрест'"
+    },
+    products: {
+        title: 'Наша продукция'
     }
 };

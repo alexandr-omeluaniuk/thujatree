@@ -84,9 +84,8 @@ class Contacts extends React.Component {
             popupAnchor:  [0, -37] // point from which the popup should open relative to the iconAnchor
         });
         L.marker([52.1243, 23.7058],{icon: icon}).addTo(map)
-            .bindPopup(t.contacts.here)
-            .openPopup();
-        }
+            .bindPopup(t.contacts.here).openPopup();
+    }
 };
 
 export default withStyles(stylePageContacts)(Contacts);

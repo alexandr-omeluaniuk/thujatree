@@ -252,7 +252,7 @@ export const styleApplicationBar = theme => ({
 
 const root = {
     [theme.breakpoints.up("md")]: {
-        padding: theme.spacing.unit * 2
+        padding: theme.spacing.unit * 4
     },
     [theme.breakpoints.down("sm")]: {
         padding: theme.spacing.unit * 2
@@ -278,5 +278,59 @@ export const stylePageContacts = theme => ({
         '& i': {
             minWidth: 40
         }
+    }
+});
+
+export const stylePageProducts = theme => ({
+    root: root,
+    grid: {
+        marginTop: theme.spacing.unit * 2
+    }
+});
+
+export const styleProductCard = theme => ({
+    media: {
+        height: 0,
+        position: 'relative',
+        paddingTop: '100%' // square
+    },
+    expand: {
+        transform: 'rotate(0deg)',
+        transition: theme.transitions.create('transform', {
+            duration: theme.transitions.duration.shortest
+        })
+    },
+    expandOpen: {
+        transform: 'rotate(180deg)'
+    },
+    hidden: {
+        display: 'none'
+    },
+    stepper: {
+        position: 'absolute',
+        bottom: '10px',
+        backgroundColor: '#ffffff00',
+        left: 0,
+        right: 0,
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    stepperLeft: {
+        position: 'absolute',
+        bottom: '0px',
+        left: '20px',
+        color: theme.palette.secondary.main,
+        backgroundColor: '#00000069',
+        '& disabled': {
+            backgroundColor: 'transparent'
+        }
+    },
+    stepperRight: {
+        position: 'absolute',
+        bottom: '0px',
+        right: '20px',
+        color: theme.palette.secondary.main,
+        backgroundColor: '#00000069'
     }
 });
