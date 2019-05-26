@@ -24,10 +24,9 @@
 
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { theme, stylePublicSite, slideDuration } from './../style/PublicSite';
+import { theme, stylePublicSite } from './../style/PublicSite';
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import AppBar from './../component/ApplicationBar';
@@ -46,7 +45,7 @@ class PublicSite extends React.Component {
                         <AppBar mobileOpen={mobileOpen} handleDrawerToggle={this.handleDrawerToggle} location={location}></AppBar>
                         <div className={classes.mainPanel}>
                             <div className={classes.content}>
-                                { this.createNavRoutes(approutes) }
+                                <Switch>{ this.createRoutes(approutes, 0) }</Switch>
                             </div>
                         </div>
                     </div>
@@ -55,22 +54,6 @@ class PublicSite extends React.Component {
     };
     handleDrawerToggle = () => {
         this.setState({ mobileOpen: !this.state.mobileOpen });
-    };
-    createNavRoutes = (routes) => {
-        const location = this.props.location;
-        const classes = this.props.classes;
-        const routing = this.createRoutes(routes, 0);
-        return (<TransitionGroup component={null}>
-                    <CSSTransition key={location.pathname} timeout={slideDuration} classNames={{
-                            enter: classes.slideEnter,
-                            enterActive: classes.slideEnterActive,
-                            exit: classes.slideExit,
-                            exitActive: classes.slideExitActive
-                    }}>
-                        <Switch>{routing}</Switch>
-                    </CSSTransition>
-                </TransitionGroup>
-        );
     };
     createRoutes = (routes, level) => {
         var arr = [];

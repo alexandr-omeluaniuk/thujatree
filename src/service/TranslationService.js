@@ -28,5 +28,20 @@ export const t = {
         'main': 'Главная',
         'products': 'Продукция',
         'contacts': 'Контакты'
+    },
+    contacts: {
+        title: 'Контакты',
+        subtitle: "Питомник туй 'Светлана ТуиБрест'",
+        phone: 'tel:+375297249926',
+        phoneLabel: '+375 (29) 724-99-26',
+        vk: 'https://vk.com/public169978483',
+        vkLabel: 'Группа VK',
+        instagram: 'https://www.instagram.com/svetlanatuibrest/?hl=ru',
+        instagramLabel: 'Профиль в Instagram',
+        address: 'Брест, ул. Радужная 149 (через дорогу от Евроопта)',
+        addressLabel: 'Наш адрес',
+        workingHours: 'Круглосуточно',
+        workingHoursLabel: 'Время работы',
+        here: "Мы здесь<br/>Питомник туй 'Светлана ТуиБрест'"
     }
 };

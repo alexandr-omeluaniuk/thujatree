@@ -28,7 +28,9 @@ import pink from '@material-ui/core/colors/pink';
 import background from "./../assets/img/background.jpg";
 
 const mobileMenuWidth = 280;
-export const slideDuration = 500;
+const toolbarMobile = 56;
+const toolbarDesktop = 64;
+
 const transition = {
     transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)"
 };
@@ -42,6 +44,7 @@ export const theme = createMuiTheme({
         useNextVariants: true
     }
 });
+theme.palette.secondary.main = theme.palette.secondary[300];
 //console.log(theme);
 export const stylePublicSite = theme => ({
     wrapper: {
@@ -64,32 +67,30 @@ export const stylePublicSite = theme => ({
         }
     },
     mainPanel: {
-        overflow: "hidden",
+        overflowY: "auto",
         position: "relative",
         float: "right",
         ...transition,
         maxHeight: "100%",
         width: "100%",
         overflowScrolling: "touch",
-        zIndex: '4'
+        zIndex: '4',
+        [theme.breakpoints.up("md")]: {
+            height: `calc(100vh - ${toolbarDesktop}px)`
+        },
+        [theme.breakpoints.down("sm")]: {
+            height: `calc(100vh - ${toolbarMobile}px)`
+        }
     },
-    slideEnter: {
-        transform: `translateX(100%) translateX(${theme.spacing.unit * 2}px)`
-    },
-    slideEnterActive: {
-        transform: 'translateX(0%)',
-        transition: `transform ${slideDuration}ms ease-in-out`
-    },
-    slideExit: {
-        transform: 'translateX(0%)',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0
-    },
-    slideExitActive: {
-        transition: `transform ${slideDuration}ms ease-in-out`,
-        transform: `translateX(-100%) translateX(-${theme.spacing.unit * 2}px)`
+    content: {
+        [theme.breakpoints.up("md")]: {
+            padding: theme.spacing.unit * 2,
+            minHeight: `calc(100vh - ${toolbarDesktop}px)`
+        },
+        [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing.unit,
+            minHeight: `calc(100vh - ${toolbarMobile}px)`
+        }
     }
 });
 
@@ -246,5 +247,30 @@ export const styleApplicationBar = theme => ({
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.getContrastText(theme.palette.primary.main),
         padding: theme.spacing.unit * 1.5
+    }
+});
+
+const root = {
+    [theme.breakpoints.up("md")]: {
+        padding: theme.spacing.unit * 2
+    },
+    [theme.breakpoints.down("sm")]: {
+        padding: theme.spacing.unit * 2
+    },
+    opacity: '.9'
+};
+
+export const stylePageContacts = theme => ({
+    root: root,
+    link: {
+        marginLeft: theme.spacing.unit * 2,
+        '& i': {
+            minWidth: 40
+        }
+    },
+    map: {
+        marginTop: theme.spacing.unit * 2,
+        minHeight: 600,
+        height: 600
     }
 });
