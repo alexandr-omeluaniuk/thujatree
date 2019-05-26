@@ -24,6 +24,10 @@
 
 export const t = {
     brand: 'Светлана ТуиБрест',
+    title: {
+        main: 'ТуиБрест | Главная',
+        contacts: 'ТуиБрест | Контакты'
+    },
     page: {
         'main': 'Главная',
         'products': 'Продукция',

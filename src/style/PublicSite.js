@@ -272,5 +272,11 @@ export const stylePageContacts = theme => ({
         marginTop: theme.spacing.unit * 2,
         minHeight: 600,
         height: 600
+    },
+    paragraph: {
+        marginLeft: theme.spacing.unit * 2,
+        '& i': {
+            minWidth: 40
+        }
     }
 });

@@ -33,6 +33,7 @@ import { t } from './../service/TranslationService';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import Divider from '@material-ui/core/Divider';
 
 class Contacts extends React.Component {
     render() {
@@ -41,7 +42,8 @@ class Contacts extends React.Component {
             <Paper className={classes.root}>
                 <Typography variant="h4" component="h3" gutterBottom>{t.contacts.title}</Typography>
                 <Typography variant="h6" component="h6" gutterBottom>{t.contacts.subtitle}</Typography>
-                <Typography variant="h6" gutterBottom>
+                <Divider variant="middle" />
+                <Typography variant="h6" gutterBottom className={classes.paragraph}>
                     <i className="fas fa-clock"></i> {t.contacts.workingHoursLabel}: {t.contacts.workingHours}
                 </Typography>
                 <Typography variant="h6" gutterBottom>
@@ -56,19 +58,20 @@ class Contacts extends React.Component {
                     <Link color="secondary" href={t.contacts.instagram} className={classes.link} target="_blank" rel="noopener">
                         <i className={'fab fa-instagram fa-lg'}></i> {t.contacts.instagramLabel}</Link>
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom className={classes.paragraph}>
                     <i className="fas fa-map-marker-alt"></i> {t.contacts.addressLabel}: {t.contacts.address}
                 </Typography>
-                <Paper elevation={5} id="map" className={classes.map}>
-                    
-                </Paper>
+                <Divider variant="middle" />
+                <Paper elevation={5} id="map" className={classes.map}></Paper>
             </Paper>
         );
     };
     componentDidMount() {
+        document.title = t.title.contacts;
         var map = L.map('map', {
             zoomControl: false,
-            maxBounds: [[52.1884, 23.5702], [52.0793, 23.8711]]
+            maxBounds: [[52.1884, 23.5702], [52.0793, 23.8711]],
+            minZoom: 11
         }).setView([52.12422, 23.70544], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
