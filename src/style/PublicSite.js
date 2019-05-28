@@ -284,7 +284,7 @@ export const stylePageContacts = theme => ({
 export const stylePageProducts = theme => ({
     root: root,
     grid: {
-        marginTop: theme.spacing.unit * 2
+        marginTop: theme.spacing.unit
     }
 });
 
