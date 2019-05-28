@@ -55,7 +55,7 @@ class Products extends React.Component {
                 <Grid container spacing={16} className={classes.grid}>{
                     data.map((product, key) => {
                         return (
-                            <Grid item lg={3} md={3} sm={12} key={key}>
+                            <Grid item lg={3} md={3} sm={12} key={key} className={classes.item}>
                                 <ProductCard product={product} />
                             </Grid>
                         );

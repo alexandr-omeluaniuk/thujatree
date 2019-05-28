@@ -285,6 +285,9 @@ export const stylePageProducts = theme => ({
     root: root,
     grid: {
         marginTop: theme.spacing.unit
+    },
+    item: {
+        width: '100%'
     }
 });
 
@@ -292,7 +295,7 @@ export const styleProductCard = theme => ({
     media: {
         height: 0,
         position: 'relative',
-        paddingTop: '100%' // square
+        paddingTop: '56.25%' // 16:9
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -332,5 +335,15 @@ export const styleProductCard = theme => ({
         right: '20px',
         color: theme.palette.secondary.main,
         backgroundColor: '#00000069'
+    },
+    shortDesc: {
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        flex: 1,
+        paddingLeft: theme.spacing.unit
+    },
+    card: {
+        width: '100%'
     }
 });
