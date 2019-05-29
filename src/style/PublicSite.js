@@ -346,5 +346,8 @@ export const styleProductCard = theme => ({
     card: {
         width: '100%',
         opacity: '.9'
+    },
+    avatar: {
+        backgroundColor: theme.palette.secondary[200]
     }
 });

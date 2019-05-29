@@ -35,10 +35,15 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import Grow from '@material-ui/core/Grow';
 
 class Products extends React.Component {
+    state = {
+        runAnimation: false
+    };
     render() {
         const { classes } = this.props;
+        const { runAnimation } = this.state;
         return (
             <React.Fragment>
                 <Paper className={classes.root}>
@@ -54,10 +59,21 @@ class Products extends React.Component {
                 </Paper>
                 <Grid container spacing={16} className={classes.grid}>{
                     data.map((product, key) => {
+                        var multi;
+                        if (key === 0) {
+                            multi = 0;
+                        } else if (key === 1) {
+                            multi = Math.log(2) / 2;
+                        } else {
+                            multi = Math.log(key);
+                        }
                         return (
-                            <Grid item lg={3} md={3} sm={12} key={key} className={classes.item}>
-                                <ProductCard product={product} />
-                            </Grid>
+                            <Grow in={runAnimation} style={{ transformOrigin: '0 0 0' }} 
+                                    {...(runAnimation ? { timeout: 2000 * multi } : {})} key={key}>
+                                <Grid item lg={3} md={3} sm={12} className={classes.item}>
+                                    <ProductCard product={product} />
+                                </Grid>
+                            </Grow>
                         );
                     })
                 }</Grid>
@@ -66,6 +82,7 @@ class Products extends React.Component {
     };
     componentDidMount() {
         document.title = t.title.products;
+        this.setState({ runAnimation: true });
     }
 };
 

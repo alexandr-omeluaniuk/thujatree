@@ -47,7 +47,7 @@ export const t = {
         addressLabel: 'Наш адрес',
         workingHours: 'Круглосуточно',
         workingHoursLabel: 'Время работы',
-        here: "Мы здесь<br/>Питомник туй 'Светлана ТуиБрест'"
+        here: "Мы здесь<br/>Питомник 'Светлана ТуиБрест'"
     },
     products: {
         title: 'Наша продукция'
