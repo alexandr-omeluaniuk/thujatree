@@ -295,7 +295,7 @@ export const styleProductCard = theme => ({
     media: {
         height: 0,
         position: 'relative',
-        paddingTop: '56.25%' // 16:9
+        paddingTop: '70%' // 16:9
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -344,6 +344,7 @@ export const styleProductCard = theme => ({
         paddingLeft: theme.spacing.unit
     },
     card: {
-        width: '100%'
+        width: '100%',
+        opacity: '.9'
     }
 });

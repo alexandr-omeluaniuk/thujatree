@@ -56,7 +56,7 @@ class ProductCard extends React.Component {
         const { classes, product } = this.props;
         return(
             <Card className={classes.card}>
-                <CardHeader title={product.name} subheader={product.title} avatar={
+                <CardHeader title={product.title} subheader={product.name} avatar={
                     <Avatar>
                         {product.name.substring(0, 1)}
                     </Avatar>
