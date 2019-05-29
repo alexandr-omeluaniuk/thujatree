@@ -36,7 +36,7 @@ export const t = {
     },
     contacts: {
         title: 'Контакты',
-        subtitle: "Питомник туй 'Светлана ТуиБрест'",
+        subtitle: "Питомник 'Светлана ТуиБрест'",
         phone: 'tel:+375297249926',
         phoneLabel: '+375 (29) 724-99-26',
         vk: 'https://vk.com/public169978483',

@@ -24,9 +24,14 @@
 
 import React from "react";
 
+import { t } from './../service/TranslationService';
+
 class Main extends React.Component {
     render() {
         return (<div>Main</div>);
+    }
+    componentDidMount() {
+        document.title = t.title.main;
     }
 };
 
