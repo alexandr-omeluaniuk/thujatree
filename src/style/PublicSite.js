@@ -260,6 +260,10 @@ const root = {
     opacity: '.9'
 };
 
+export const stylePageMain = theme => ({
+    root: root
+});
+
 export const stylePageContacts = theme => ({
     root: root,
     link: {
