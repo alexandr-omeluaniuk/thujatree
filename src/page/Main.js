@@ -33,16 +33,19 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import Divider from '@material-ui/core/Divider';
 
 class Main extends React.Component {
     render() {
         const { classes } = this.props;
         return (
                 <Paper className={classes.root}>
-                    <Grid container spacing={16}>
+                    <Grid container spacing={32}>
                         <Grid item lg={6} md={6} sm={12}>
                             <Typography variant="h4" component="h3" gutterBottom>{t.main.title}</Typography>
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle1}</Typography>
+                            <Typography>{t.main.text1}</Typography>
+                            <Divider variant="middle" className={classes.divider}/>
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle2}</Typography>
                             <Typography>{t.main.text2}</Typography>
                         </Grid>

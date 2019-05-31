@@ -261,7 +261,10 @@ const root = {
 };
 
 export const stylePageMain = theme => ({
-    root: root
+    root: root,
+    divider: {
+        marginBottom: theme.spacing.unit * 2
+    }
 });
 
 export const stylePageContacts = theme => ({
