@@ -29,6 +29,7 @@ import { t } from './../service/TranslationService';
 import { stylePageMain } from '../style/PublicSite';
 
 import Paper from '@material-ui/core/Paper';
+import Hidden from "@material-ui/core/Hidden";
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
@@ -45,44 +46,72 @@ class Main extends React.Component {
                             <Typography variant="h4" component="h3" gutterBottom>{t.main.title}</Typography>
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle1}</Typography>
                             <Typography>{t.main.text1}</Typography>
+                            <Hidden mdUp implementation="css">
+                                <GridList cols={1} cellHeight={150}>
+                                    <GridListTile cols={1}>
+                                        <img src={'/slide_3/1.jpg'} alt={t.main.altImg} />
+                                    </GridListTile>
+                                    <GridListTile cols={1}>
+                                        <img src={'/slide_3/2.jpg'} alt={t.main.altImg} />
+                                    </GridListTile>
+                                    <GridListTile cols={1}>
+                                        <img src={'/slide_3/4.jpg'} alt={t.main.altImg} />
+                                    </GridListTile>
+                                </GridList>
+                            </Hidden>
                             <Divider variant="middle" className={classes.divider}/>
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle2}</Typography>
                             <Typography>{t.main.text2}</Typography>
+                            <Hidden mdUp implementation="css">
+                                <GridList cols={1} cellHeight={200}>
+                                    <GridListTile cols={1}>
+                                        <img src={'/slide_3/5.jpg'} alt={t.main.altImg} />
+                                    </GridListTile>
+                                    <GridListTile cols={1}>
+                                        <img src={'/slide_3/6.jpg'} alt={t.main.altImg} />
+                                    </GridListTile>
+                                    <GridListTile cols={1}>
+                                        <img src={'/slide_3/7.jpg'} alt={t.main.altImg} />
+                                    </GridListTile>
+                                </GridList>
+                            </Hidden>
                         </Grid>
                         <Grid item lg={6} md={6} sm={12}>
                             <Paper elevation={3}>
-                                <GridList cols={3} cellHeight={300}>
-                                    <GridListTile cols={1}>
-                                        <img src={'/slide_3/3.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={2}>
-                                        <img src={'/slide_3/1.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={2}>
-                                        <img src={'/slide_3/2.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={1}>
-                                        <img src={'/slide_3/4.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={1}>
-                                        <img src={'/slide_3/5.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={2}>
-                                        <img src={'/slide_3/6.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={2}>
-                                        <img src={'/slide_3/8.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={1}>
-                                        <img src={'/slide_3/7.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={1}>
-                                        <img src={'/slide_3/9.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                    <GridListTile cols={2}>
-                                        <img src={'/slide_3/10.jpg'} alt={'Питомник туй'} />
-                                    </GridListTile>
-                                </GridList>
+                                <Hidden smDown implementation="css">
+                                    <GridList cols={3} cellHeight={300}>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_3/3.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={2}>
+                                            <img src={'/slide_3/1.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={2}>
+                                            <img src={'/slide_3/2.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_3/4.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_3/5.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={2}>
+                                            <img src={'/slide_3/6.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={2}>
+                                            <img src={'/slide_3/8.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_3/7.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_3/9.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={2}>
+                                            <img src={'/slide_3/10.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                    </GridList>
+                                </Hidden>
                             </Paper>
                         </Grid>
                     </Grid>
