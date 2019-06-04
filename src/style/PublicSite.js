@@ -259,12 +259,22 @@ const root = {
     },
     opacity: '.9'
 };
+const divider = {
+    marginBottom: theme.spacing.unit * 2,
+    marginTop: theme.spacing.unit * 2
+};
+
+const pageTitle = {
+    [theme.breakpoints.down("sm")]: {
+        fontSize: '1.8em',
+        color: theme.palette.secondary[700]
+    }
+};
 
 export const stylePageMain = theme => ({
     root: root,
-    divider: {
-        marginBottom: theme.spacing.unit * 2
-    }
+    divider: divider,
+    title: pageTitle
 });
 
 export const stylePageContacts = theme => ({
@@ -285,7 +295,9 @@ export const stylePageContacts = theme => ({
         '& i': {
             minWidth: 40
         }
-    }
+    },
+    divider: divider,
+    title: pageTitle
 });
 
 export const stylePageProducts = theme => ({
@@ -295,7 +307,12 @@ export const stylePageProducts = theme => ({
     },
     item: {
         width: '100%'
-    }
+    },
+    navLink: {
+        color: theme.palette.secondary.secondary
+    },
+    divider: divider,
+    title: pageTitle
 });
 
 export const styleProductCard = theme => ({

@@ -40,28 +40,28 @@ class Contacts extends React.Component {
         const { classes } = this.props;
         return (
             <Paper className={classes.root}>
-                <Typography variant="h4" component="h3" gutterBottom>{t.contacts.title}</Typography>
+                <Typography variant="h4" component="h3" gutterBottom align={'center'} className={classes.title}>{t.contacts.title}</Typography>
                 <Typography variant="h6" component="h6" gutterBottom>{t.contacts.subtitle}</Typography>
-                <Divider variant="middle" />
-                <Typography variant="h6" gutterBottom className={classes.paragraph}>
+                <Divider variant="middle" className={classes.divider}/>
+                <Typography gutterBottom className={classes.paragraph}>
                     <i className="fas fa-clock"></i> {t.contacts.workingHoursLabel}: {t.contacts.workingHours}
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <Typography gutterBottom>
                     <Link color="secondary" href={t.contacts.phone} className={classes.link}>
                         <i className={'fas fa-phone fa-lg'}></i> {t.contacts.phoneLabel}</Link>
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <Typography gutterBottom>
                     <Link color="secondary" href={t.contacts.vk} className={classes.link} target="_blank" rel="noopener">
                         <i className={'fab fa-vk fa-lg'}></i> {t.contacts.vkLabel}</Link>
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <Typography gutterBottom>
                     <Link color="secondary" href={t.contacts.instagram} className={classes.link} target="_blank" rel="noopener">
                         <i className={'fab fa-instagram fa-lg'}></i> {t.contacts.instagramLabel}</Link>
                 </Typography>
-                <Typography variant="h6" gutterBottom className={classes.paragraph}>
+                <Typography gutterBottom className={classes.paragraph}>
                     <i className="fas fa-map-marker-alt"></i> {t.contacts.addressLabel}: {t.contacts.address}
                 </Typography>
-                <Divider variant="middle" />
+                <Divider variant="middle" className={classes.divider}/>
                 <Paper elevation={5} id="map" className={classes.map}></Paper>
             </Paper>
         );

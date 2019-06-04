@@ -43,7 +43,7 @@ class Main extends React.Component {
                 <Paper className={classes.root}>
                     <Grid container spacing={32}>
                         <Grid item lg={6} md={6} sm={12}>
-                            <Typography variant="h4" component="h3" gutterBottom>{t.main.title}</Typography>
+                            <Typography variant="h4" component="h3" gutterBottom align={'center'} className={classes.title}>{t.main.title}</Typography>
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle1}</Typography>
                             <Typography>{t.main.text1}</Typography>
                             <Hidden mdUp implementation="css">
@@ -59,6 +59,14 @@ class Main extends React.Component {
                                     </GridListTile>
                                 </GridList>
                             </Hidden>
+                            <Divider variant="middle" className={classes.divider}/>
+                            <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle3}</Typography>
+                            <ul>
+                                <li>Широкий ассортимент кипарисов, туй и можжевельников</li>
+                                <li>Квалифицированная помощь при выборе растений</li>
+                                <li>Благоустроенная территория с примерами в разных ландшафтных стилях</li>
+                                <li>Даем консультации по посадке и уходу</li>
+                            </ul>
                             <Divider variant="middle" className={classes.divider}/>
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle2}</Typography>
                             <Typography>{t.main.text2}</Typography>

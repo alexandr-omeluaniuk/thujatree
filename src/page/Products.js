@@ -23,6 +23,7 @@
  */
 
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import { stylePageProducts } from './../style/PublicSite';
@@ -47,14 +48,14 @@ class Products extends React.Component {
         return (
             <React.Fragment>
                 <Paper className={classes.root}>
-                    <Typography variant="h4" component="h3" gutterBottom>{t.products.title}</Typography>
-                    <Divider variant="middle" />
+                    <Typography variant="h4" component="h3" gutterBottom align={'center'} className={classes.title}>{t.products.title}</Typography>
+                    <Divider variant="middle" className={classes.divider}/>
                     <Typography variant="subtitle2" component="h6" gutterBottom>
-                        Желаете <strong>купить туи в Бресте</strong> для своего участка или территории? 
+                        Желаете <strong>купить туи, можжевельники или другие хвойные растения в Бресте</strong> для своего участка или территории? 
                         Тогда мы с радостью предложим вам широкий ассортимент туй для посадки. 
                         У нас отличные <strong>цены на саженцы туй в Бресте</strong> и выгодные предложения для оптовых покупателей.
                         Наличие и цены можно уточнить по телефону <Link color="secondary" href={t.contacts.phone}>{t.contacts.phoneLabel}</Link>,
-                        а дополнительную контактную информацию можно посмотреть <Link color="secondary" href={'/page/contacts'}>здесь</Link>
+                        а дополнительную контактную информацию можно посмотреть <NavLink to={'/page/contacts'} className={classes.navLink}>здесь</NavLink>.
                     </Typography>
                 </Paper>
                 <Grid container spacing={16} className={classes.grid}>{
@@ -70,7 +71,7 @@ class Products extends React.Component {
                         return (
                             <Grow in={runAnimation} style={{ transformOrigin: '0 0 0' }} 
                                     {...(runAnimation ? { timeout: 2000 * multi } : {})} key={key}>
-                                <Grid item lg={3} md={3} sm={12} className={classes.item}>
+                                <Grid item lg={3} md={4} sm={12} className={classes.item}>
                                     <ProductCard product={product} />
                                 </Grid>
                             </Grow>
