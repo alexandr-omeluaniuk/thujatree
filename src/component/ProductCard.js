@@ -99,6 +99,8 @@ class ProductCard extends React.Component {
         );
     };
     handleExpandClick = () => {
+        console.log(window.ga);
+        window.ga('send', 'event', 'Product', 'read', this.props.product.title);
         this.setState(state => ({ expanded: !state.expanded }));
     };
 };
