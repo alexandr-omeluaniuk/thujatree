@@ -27,6 +27,7 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { t } from './../service/TranslationService';
 import { stylePageMain } from '../style/PublicSite';
+import { NavLink } from "react-router-dom";
 
 import Paper from '@material-ui/core/Paper';
 import Hidden from "@material-ui/core/Hidden";
@@ -70,6 +71,42 @@ class Main extends React.Component {
                             <Divider variant="middle" className={classes.divider}/>
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle2}</Typography>
                             <Typography>{t.main.text2}</Typography>
+                            Если вы желаете купить <strong>туи или декоративные можжевельники</strong> в Бресте, то можете ознакомится <NavLink 
+                                to={'/page/products'} title="Туи и можжевельники в нашем каталоге" className={classes.navLink}>с нашей продукцией</NavLink>
+                            <Hidden smDown implementation="css">
+                                <Divider variant="middle" className={classes.divider}/>
+                                <Paper elevation={3}>
+                                    <GridList cols={3} cellHeight={244}>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/1.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/2.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/3.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/4.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/5.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/6.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/7.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/8.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                        <GridListTile cols={1}>
+                                            <img src={'/slide_2/9.jpg'} alt={t.main.altImg} />
+                                        </GridListTile>
+                                    </GridList>
+                                </Paper>
+                            </Hidden>
                             <Hidden mdUp implementation="css">
                                 <GridList cols={1} cellHeight={200}>
                                     <GridListTile cols={1}>

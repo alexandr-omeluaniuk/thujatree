@@ -63,7 +63,7 @@ class ProductCard extends React.Component {
                     </Avatar>
                 } 
                 />
-                <CardMedia image={'/data/' + product.id + '/' + product.images[activeStep] + '.jpg'} title={product.title} className={classes.media}>
+                <CardMedia image={'/data/' + product.id + '/' + product.images[activeStep] + '.jpg'} title={product.title} className={classes.media} alt={product.title}>
                     {product.images.length < 2 ? null : 
                         <MobileStepper variant="dots" steps={product.images.length} position="static" activeStep={activeStep} className={classes.stepper}
                         nextButton={
