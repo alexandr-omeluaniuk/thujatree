@@ -25,6 +25,7 @@
 import React from "react";
 import L from 'leaflet'
 import '../../node_modules/leaflet/dist/leaflet.css';
+import ReactGA from 'react-ga';
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import { stylePageContacts } from './../style/PublicSite';
@@ -47,15 +48,15 @@ class Contacts extends React.Component {
                     <i className="fas fa-clock"></i> {t.contacts.workingHoursLabel}: {t.contacts.workingHours}
                 </Typography>
                 <Typography gutterBottom>
-                    <Link color="secondary" href={t.contacts.phone} className={classes.link}>
+                    <Link color="secondary" href={t.contacts.phone} className={classes.link} onClick={() => this.contactEvent('phone')}>
                         <i className={'fas fa-phone fa-lg'}></i> {t.contacts.phoneLabel}</Link>
                 </Typography>
                 <Typography gutterBottom>
-                    <Link color="secondary" href={t.contacts.vk} className={classes.link} target="_blank" rel="noopener">
+                    <Link color="secondary" href={t.contacts.vk} className={classes.link} target="_blank" rel="noopener" onClick={() => this.contactEvent('vkontakte')}>
                         <i className={'fab fa-vk fa-lg'}></i> {t.contacts.vkLabel}</Link>
                 </Typography>
                 <Typography gutterBottom>
-                    <Link color="secondary" href={t.contacts.instagram} className={classes.link} target="_blank" rel="noopener">
+                    <Link color="secondary" href={t.contacts.instagram} className={classes.link} target="_blank" rel="noopener" onClick={() => this.contactEvent('instagram')}>
                         <i className={'fab fa-instagram fa-lg'}></i> {t.contacts.instagramLabel}</Link>
                 </Typography>
                 <Typography gutterBottom className={classes.paragraph}>
@@ -85,7 +86,13 @@ class Contacts extends React.Component {
         });
         L.marker([52.1243, 23.7058],{icon: icon}).addTo(map)
             .bindPopup(t.contacts.here).openPopup();
-    }
+    };
+    contactEvent = (type) => {
+        ReactGA.event({
+            category: 'Contact',
+            action: type
+        });
+    };
 };
 
 export default withStyles(stylePageContacts)(Contacts);

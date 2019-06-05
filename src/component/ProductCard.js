@@ -27,6 +27,7 @@ import React from "react";
 import { withStyles } from '@material-ui/core/styles';
 import { styleProductCard } from './../style/PublicSite';
 import classnames from 'classnames';
+import ReactGA from 'react-ga';
 
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -99,8 +100,13 @@ class ProductCard extends React.Component {
         );
     };
     handleExpandClick = () => {
-        console.log(window.ga);
-        window.ga('send', 'event', 'Product', 'read', this.props.product.title);
+        if (!this.state.expanded) {
+            ReactGA.event({
+                category: 'Product',
+                action: 'read'
+            });
+        }
+        //window.ga('send', 'event', 'Product', 'read', this.props.product.title);
         this.setState(state => ({ expanded: !state.expanded }));
     };
 };

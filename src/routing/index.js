@@ -28,6 +28,11 @@ import { urls } from './urls';
 
 export const history = createBrowserHistory();
 
+history.listen(function (location) {
+    window.ga('set', 'page', location.pathname + location.search);
+    window.ga('send', 'pageview');
+});
+
 export const indexRoutes = [{
         path: urls.context,
         component: PublicSite

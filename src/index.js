@@ -29,6 +29,10 @@ import * as serviceWorker from './serviceWorker';
 import { indexRoutes, history } from './routing/index';
 import './assets/css/common.css';
 import './assets/css/material-icons.css';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-141397008-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 ReactDOM.render(
     <Router history={history}>
