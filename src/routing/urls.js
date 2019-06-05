@@ -26,5 +26,5 @@ const context = '/';
 
 export const urls = {
     context: context,
-    publicSitePage: context + 'page'
+    publicSitePage: context
 };

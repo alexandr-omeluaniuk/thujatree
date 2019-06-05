@@ -55,7 +55,7 @@ class Products extends React.Component {
                         Тогда мы с радостью предложим вам широкий ассортимент туй для посадки. 
                         У нас отличные <strong>цены на саженцы туй в Бресте</strong> и выгодные предложения для оптовых покупателей.
                         Наличие и цены можно уточнить по телефону <Link color="secondary" href={t.contacts.phone}>{t.contacts.phoneLabel}</Link>,
-                        а дополнительную контактную информацию можно посмотреть <NavLink to={'/page/contacts'} className={classes.navLink}>здесь</NavLink>.
+                        а дополнительную контактную информацию можно посмотреть <NavLink to={'/contacts'} className={classes.navLink}>здесь</NavLink>.
                     </Typography>
                 </Paper>
                 <Grid container spacing={16} className={classes.grid}>{

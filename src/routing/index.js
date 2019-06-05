@@ -22,11 +22,11 @@
  * THE SOFTWARE.
  */
 
-import { createBrowserHistory } from "history";
+import { createHashHistory } from "history";
 import PublicSite from './../app/PublicSite';
 import { urls } from './urls';
 
-export const history = createBrowserHistory();
+export const history = createHashHistory();
 
 history.listen(function (location) {
     window.ga('set', 'page', location.pathname + location.search);

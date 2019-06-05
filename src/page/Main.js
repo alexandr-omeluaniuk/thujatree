@@ -72,7 +72,7 @@ class Main extends React.Component {
                             <Typography variant="h6" component="h6" gutterBottom>{t.main.subtitle2}</Typography>
                             <Typography>{t.main.text2}</Typography>
                             Если вы желаете купить <strong>туи или декоративные можжевельники</strong> в Бресте, то можете ознакомится <NavLink 
-                                to={'/page/products'} title="Туи и можжевельники в нашем каталоге" className={classes.navLink}>с нашей продукцией</NavLink>
+                                to={'/products'} title="Туи и можжевельники в нашем каталоге" className={classes.navLink}>с нашей продукцией</NavLink>
                             <Hidden smDown implementation="css">
                                 <Divider variant="middle" className={classes.divider}/>
                                 <Paper elevation={3}>

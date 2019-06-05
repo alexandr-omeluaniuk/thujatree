@@ -30,22 +30,22 @@ import Products from './../page/Products';
 import Contacts from './../page/Contacts';
 
 export const approutes = [{
-        path: urls.publicSitePage + "/main",
+        path: urls.publicSitePage + "main",
         sidebarName: t.page.main,
         icon: 'home',
         component: Main
     }, {
-        path: urls.publicSitePage + "/products",
+        path: urls.publicSitePage + "products",
         sidebarName: t.page.products,
         icon: 'shopping_basket',
         component: Products
     }, {
-        path: urls.publicSitePage + "/contacts",
+        path: urls.publicSitePage + "contacts",
         sidebarName: t.page.contacts,
         icon: 'phone',
         component: Contacts
     }, {
         redirect: true,
         path: urls.context,
-        to: urls.publicSitePage + "/main"
+        to: urls.publicSitePage + "main"
     }];
