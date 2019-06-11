@@ -23,7 +23,8 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
+import { render } from 'react-snapshot'
 import { Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import { indexRoutes, history } from './routing/index';
@@ -34,7 +35,7 @@ import ReactGA from 'react-ga';
 ReactGA.initialize('UA-141397008-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-ReactDOM.render(
+/*ReactDOM.*/render(
     <Router history={history}>
         <Switch>
         {indexRoutes.map((prop, key) => {
